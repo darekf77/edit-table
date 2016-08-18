@@ -1,0 +1,25 @@
+{
+  "name": "edit-table",
+  "version": "0.0.1",
+  "description": "Edit object in array with angular2 ",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darekf77/edit-table.git"
+  },
+  "keywords": [
+    "angular2",
+    "edit",
+    "table",
+    "editable"
+  ],
+  "author": "Dariusz Filipiak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darekf77/edit-table/issues"
+  },
+  "homepage": "https://github.com/darekf77/edit-table#readme"
+}
