@@ -1,11 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Log, Level } from 'ng2-logger/ng2-logger';
-const log = Log.create('edit-table');
+const log = Log.create('edit-table', Level.INFO);
 
 import { EditTable } from './model';
 
 const id: string = 'edit-table';
+
+enum Types {
+    STRING,
+    BOOLEAN
+}
+
 
 @Component({
     selector: id,
@@ -14,30 +20,58 @@ const id: string = 'edit-table';
 })
 export class EditTableComponent implements OnInit {
 
-    @Input() rows: any[];
-    @Input() headers: string[];
+    isArray = isArray;
+    toArray = toArray;
+    isBoolean = isBoolean;
+    @Input() rows: any[] =
+    [
+        { key1: 'Me', key2: false },
+        { key1: 'Other', key2: true }
+    ];
+    @Input() headers: any[] = [
+        ['Name', 'key1', 'Enter your name... ', undefined],
+        ['Is stupid', 'key2', true, 100]
+    ];
 
+    @Input() messageNoRows: string = 'Empty data-table....';
+
+    event = {
+        addRow: false
+    };
     data: Object = {};
-
-    add(o) {
-        this.rows.push(JSON.parse(JSON.stringify(o)));
-    }
-
-    toArray(o: Object): string[] {
-        log.d('object candidate to be array', o);
-        let a = [];
-        for (let i in o) {
-            if (o.hasOwnProperty(i)) {
-                a.push(i);
+    save(o: Object) {
+        log.i('before', o);
+        let patterObject = this.rows[0];
+        for (let p in patterObject) {
+            if (o[p] === undefined) {
+                if (isBoolean(patterObject[p])) o[p] = false;
+                else o[p] = '';
             }
         }
-        log.d('object transformed', a);
-        return a;
+        log.i('after', o);
+        this.rows.push(JSON.parse(JSON.stringify(o)));
+        this.event.addRow = !this.event.addRow;
+    }
+    addRow() {
+        this.data = {};
+        this.event.addRow = !this.event.addRow;
+    }
+    cancel() {
+        this.event.addRow = !this.event.addRow;
+        this.data = {};
     }
 
-    isBoolean(bool) {
-        return typeof bool === 'boolean' ||
-            (typeof bool === 'object' && typeof bool.valueOf() === 'boolean');
+    getTypes(o: Object): Types[] {
+        let types: Types[] = [];
+        for (let p in o) {
+            if (isBoolean(o[p])) types.push(Types.BOOLEAN);
+            else types.push(Types.STRING);
+        }
+        return types;
+    }
+
+    unedit() {
+        this.edit = undefined;
     }
 
     edit: Object;
@@ -46,10 +80,39 @@ export class EditTableComponent implements OnInit {
         return Object.is(o, this.edit);
     }
 
+    remove(row) {
+        if (confirm("Are you sure ? ")) {
+            let index = this.rows.indexOf(row);
+            this.rows.splice(index, 1);
+        }
+    }
+
     constructor() {
 
     }
 
     ngOnInit() { }
 
+
+}
+
+function isBoolean(bool) {
+    return typeof bool === 'boolean' ||
+        (typeof bool === 'object' && typeof bool.valueOf() === 'boolean');
+}
+
+function isArray(o: any) {
+    return (o instanceof Array);
+}
+
+function toArray(o: Object): string[] {
+    log.d('object candidate to be array', o);
+    let a = [];
+    for (let i in o) {
+        if (o.hasOwnProperty(i)) {
+            a.push(i);
+        }
+    }
+    log.d('object transformed', a);
+    return a;
 }

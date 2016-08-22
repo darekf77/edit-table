@@ -1,5 +1,42 @@
+:host {
+    margin-bottom: 20px;
+}
+
 .mini-table {
-    height: 100px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    // height: 100px;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
+}
+
+.checkbox-input {
+    width: 50px;
+}
+
+.first-column {
+    width: 80px;
+    text-align: center;
+    button {
+        width: 25px;
+        display: inline-block;
+        text-align: center;
+        i {
+            display: inline-block;
+        }
+    }
+}
+
+.add-button {
+    margin-left: -29px;
+}
+
+// #wrap {
+//     display: block;
+//     tr {
+//         background: red;
+//     }
+// }
+
+
+#no-rows {
+
 }

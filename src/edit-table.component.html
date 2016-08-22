@@ -1,47 +1,58 @@
 <div class="row">
-    <table class="table table-striped table-hover" style="margin-bottom: 0px;">
-        <thead>
-            <tr>
-                <th style="width: 50px;"></th>
-                <th *ngFor="let head of headers" style="width: 50px;">{{head}}</th>
-            </tr>
-        </thead>
-    </table>
-</div>
-
-<div class="row">
     <div class="mini-table">
         <table class="table table-striped table-hover" style="margin-bottom: 0px;">
+            <thead>
+                <tr>
+                    <th class="first-column"></th>
+                    <th *ngFor="let head of headers" [ngStyle]="{'width': head[3]?head[3]+'px':'auto' }">
+                        {{head[0]}}
+                    </th>
+                </tr>
+            </thead>
             <tbody>
                 <tr *ngFor="let row of rows">
-                    <td style="width: 50px;">
-                        <button type="button" class="btn btn-danger btn-xs"   >-</button>
-                    </td>
-                    <td *ngFor="let item of toArray(row)" (click)="edit = row[item]" >
-                        <span *ngIf="!isBoolean(row[item]) && !isEdited(row[item])" >{{row[item]}}</span>
-                        <input *ngIf="!isBoolean(row[item]) && isEdited(row[item])" type="text" class="form-control"
-                         [(ngModel)]="row[item]">
-                        <input *ngIf="isBoolean(row[item])" type="checkbox" [(ngModel)]="row[item]">
-                    </td>                    
+                    <td class="first-column">
+                        <button type="button" class="btn btn-danger btn-xs" (click)="remove(row)" >
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                        <button *ngIf="!isEdited(row)" type="button" class="btn btn-info btn-xs" (click)="edit = row" >
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                        <button *ngIf="isEdited(row)" type="button" class="btn btn-default btn-xs" (click)="unedit()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
 
+                    </td>
+                    <td *ngFor="let item of toArray(row)">
+                        <span *ngIf="!isBoolean(row[item]) && !isEdited(row)">{{row[item]}}</span>
+                        <input *ngIf="!isBoolean(row[item])  && isEdited(row)"  type="text" class="form-control" [(ngModel)]="row[item]">
+                        <input *ngIf="isBoolean(row[item])"  [disabled]="!isEdited(row)"  type="checkbox" [(ngModel)]="row[item]">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="first-column">
+                        <button *ngIf="!event.addRow && rows.length !== 0" type="button" class="btn btn-success btn-xs add-button" (click)="addRow()">
+                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                        </button>
+
+                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-success btn-xs" (click)="save(data)">
+                            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        </button>
+
+                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-default btn-xs" (click)="cancel(data)">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+
+                    </td>
+                    <td *ngFor="let head of headers">
+                        <div [ngClass]="{'invisible': !event.addRow }">
+                            <input *ngIf="!isBoolean(head[2])" type="text"  placeholder="{{head[2]}}"  class="form-control" [(ngModel)]="data[head[1]]">
+                            <input *ngIf="isBoolean(head[2])" type="checkbox" [(ngModel)]="data[head[1]]">
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
-</div>
-
-<div class="row" style="margin-right: 2px;">
-    <table class="table table-striped table-hover">
-        <tbody class="mini-table">
-            <tr>
-                <td style="width: 50px;">
-                    <button type="button" class="btn btn-success btn-xs" (click)="add(data)">+</button>
-                </td>
-                <td *ngFor="let item of toArray(rows[0])" >
-                    <input *ngIf="!isBoolean(item)" type="text" class="form-control" [(ngModel)]="data[item]" >
-                    <input *ngIf="isBoolean(item)" type="checkbox" [(ngModel)]="data[item]" >
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
