@@ -20,7 +20,7 @@
   "scripts": {
     "test": "karma start"
   },
-  "private": "true",
+  "private": false,
   "description": "Edit object in array with angular2 ",
   "license": "MIT",
   "author": "Dariusz Filipiak",

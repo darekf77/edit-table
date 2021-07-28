@@ -21,7 +21,7 @@
     "scripts": {
       "test": "karma start"
     },
-    "private": "true",
+    "private": false,
     "description": "Edit object in array with angular2 ",
     "license": "MIT",
     "author": "Dariusz Filipiak",
@@ -35,7 +35,7 @@
     ]
   },
   "name": "edit-table",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Edit object in array with angular2 ",
   "main": "karma.conf.js",
   "scripts": {
@@ -230,7 +230,7 @@
     "node-cli-tester": "~0.0.6",
     "node-localstorage": "2.1.6",
     "node-notifier": "6.0.0",
-    "node-sass": "4.7.2",
+    "node-sass": "4.12.1",
     "nodemon": "1.14.11",
     "npm-get-dependents": "1.0.1",
     "npm-run": "4.1.2",
@@ -293,6 +293,6 @@
     "webpack-cli": "3.3.11",
     "zone.js": "0.10.2"
   },
-  "private": "true",
+  "private": false,
   "lastBuildTagHash": "cb312024e9df4ec380408e210f29e44c699f81a1"
 }
