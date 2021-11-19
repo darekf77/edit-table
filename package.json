@@ -32,7 +32,8 @@
       "edit",
       "table",
       "editable"
-    ]
+    ],
+    "workerPlugins": {}
   },
   "name": "edit-table",
   "version": "0.0.19",
