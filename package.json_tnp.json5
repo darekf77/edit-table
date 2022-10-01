@@ -1,7 +1,5 @@
 {
   "resources": [],
-  "version": "v2",
-  "type": "angular-lib",
   "overrided": {
     "linkedFolders": [],
     "ignoreDepsPattern": [
@@ -17,10 +15,12 @@
     "obscure": false,
     "ugly": false
   },
+  "version": "v3",
+  "type": "isomorphic-lib",
   "scripts": {
     "test": "karma start"
   },
-  "private": false,
+  "private": true,
   "description": "Edit object in array with angular2 ",
   "license": "MIT",
   "author": "Dariusz Filipiak",
