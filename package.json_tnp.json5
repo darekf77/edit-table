@@ -1,5 +1,6 @@
 {
   "resources": [],
+
   "overrided": {
     "linkedFolders": [],
     "ignoreDepsPattern": [
@@ -9,28 +10,36 @@
     "includeOnly": [],
     "dependencies": {}
   },
+
   "linkedProjects": [],
+  'linkedRepos': [],
+
   "libReleaseOptions": {
     "nodts": false,
     "obscure": false,
     "ugly": false
   },
+
   "version": "v3",
   "type": "isomorphic-lib",
+
   "scripts": {
     "test": "karma start"
   },
+
   "private": true,
   "description": "Edit object in array with angular2 ",
   "license": "MIT",
   "author": "Dariusz Filipiak",
   "homepage": "https://github.com/darekf77/edit-table#readme",
   "main": "karma.conf.js",
+
   "keywords": [
     "angular2",
     "edit",
     "table",
     "editable"
   ],
-  "workerPlugins": {}
+
+  "workerPlugins": {},
 }
