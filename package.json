@@ -1,6 +1,6 @@
 {
   "name": "edit-table",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "Edit object in array with angular2 ",
   "main": "karma.conf.js",
   "scripts": {
