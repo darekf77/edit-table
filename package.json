@@ -120,7 +120,7 @@
     "dateformat": "3.0.3",
     "detect-mocha": "0.1.0",
     "diff": "3.2.0",
-    "edit-table": "4.0.1",
+    "edit-table": "13.0.0",
     "element-resize-detector": "1.1.15",
     "enquirer": "2.3.0",
     "enum-values": "1.2.1",
@@ -258,5 +258,5 @@
     "zone.js": "~0.11.4"
   },
   "private": false,
-  "lastBuildTagHash": "d875643c232a1194db6d2ff7b88f2ce83e1d24b4"
+  "lastBuildTagHash": "6e7e04e918016b5977aea64502602759b9af20c1"
 }
