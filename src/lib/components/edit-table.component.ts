@@ -23,12 +23,12 @@ export class EditTableComponent implements OnInit {
   isBoolean = isBoolean;
   @Input() rows: any[] =
     [
-      { key1: 'Me', key2: false },
-      { key1: 'Other', key2: true }
+      { key1: 'Bob', key2: false },
+      { key1: 'Alice', key2: true }
     ];
   @Input() headers: any[] = [
     ['Name', 'key1', 'Enter your name... ', undefined],
-    ['Is stupid', 'key2', true, 100]
+    ['Is awesome', 'key2', true, 100]
   ];
 
   @Input() messageNoRows: string = 'Empty data-table....';

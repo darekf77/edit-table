@@ -20,7 +20,7 @@ use in html
   <edit-table
     [headers]="[ 
       ['Name', 'key1', 'Enter your name... ', undefined],
-      ['Is stupid', 'key2', true, 100]
+      ['Is awesome', 'key2', true, 100]
     ]"
       
     [rows]="[
