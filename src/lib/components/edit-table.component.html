@@ -11,7 +11,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let row of rows">
-                    <td class="first-column">
+                    <td class="first-column" style="min-width: 100px" >
                         <button type="button" class="btn btn-danger btn-xs" (click)="remove(row)" >
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </button>
@@ -26,7 +26,7 @@
                     <td *ngFor="let item of toArray(row)">
                         <span *ngIf="!isBoolean(row[item]) && !isEdited(row)">{{row[item]}}</span>
                         <input *ngIf="!isBoolean(row[item])  && isEdited(row)"  type="text" class="form-control" [(ngModel)]="row[item]">
-                        <input *ngIf="isBoolean(row[item])"  [disabled]="!isEdited(row)"  type="checkbox" [(ngModel)]="row[item]">
+                        <input *ngIf="isBoolean(row[item])"  [disabled]="!isEdited(row)"  type="checkbox" [checked]="row[item]">
                     </td>
 
                 </tr>
@@ -36,19 +36,21 @@
                             <i class="fa fa-plus-square-o" aria-hidden="true"></i>
                         </button>
 
-                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-success btn-xs" (click)="save(data)">
+                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-success btn-xs" (click)="save()">
                             <i class="fa fa-floppy-o" aria-hidden="true"></i>
                         </button>
 
-                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-default btn-xs" (click)="cancel(data)">
+                        <button *ngIf="event.addRow || rows.length === 0" type="button" class="btn btn-default btn-xs" (click)="cancel()">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </button>
 
                     </td>
                     <td *ngFor="let head of headers">
+                        <!-- {{ head | json }} -->
+                        <!-- head[p1]: {{ head[1] }} -->
                         <div [ngClass]="{'invisible': !event.addRow }">
-                            <input *ngIf="!isBoolean(head[2])" type="text"  placeholder="{{head[2]}}"  class="form-control" [(ngModel)]="data[head[1]]">
-                            <input *ngIf="isBoolean(head[2])" type="checkbox" [(ngModel)]="data[head[1]]">
+                            <input *ngIf="!isBoolean(head[2])" type="text"  placeholder="{{head[2]}}"  class="form-control" (blur)="onChange($event, head[1])">
+                            <input *ngIf="isBoolean(head[2])" type="checkbox"  (blur)="onChange($event, head[1],true)" >
                         </div>
                     </td>
                 </tr>
@@ -56,3 +58,4 @@
         </table>
     </div>
 </div>
+<!-- {{ data | json }} -->

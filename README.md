@@ -6,23 +6,38 @@ Edit objects in array in very nice way.
 
 
 import it
-
-    import { EditTableComponent } from 'edit-table/edit-table';
-
+```ts
+    import { EditTableModule } from 'edit-table/browser';
+```
 include it
-
-    ...
-    directives: [EditTableComponent]
-    ...
-
+```ts
+  ...
+  imports: [EditTableModule]
+  ...
+```
 use in html 
+```html
+  <edit-table
+    [headers]="[ 
+      ['Name', 'key1', 'Enter your name... ', undefined],
+      ['Is stupid', 'key2', true, 100]
+    ]"
+      
+    [rows]="[
+      { key1: 'Me', key2: false },
+      { key1: 'Other', key2: true }
+    ]">
+  </edit-table>
+```
 
-    <edit-table
-     [headers]="[ ['Name', 'key1', 'Enter your name... ', undefined],
-        ['Is stupid', 'key2', true, 100]]"
-        
-      [rows]="[{ key1: 'Me', key2: false },
-        { key1: 'Other', key2: true }]">
-    </edit-table>
-
+In you angular component:
+```ts
 headers: [  'Heder name'  ,  'key_in_object',  String (placeholder) or Boolean  (checkbox), width in px ]
+```
+
+# local development
+```
+npm i -g firedev
+cd edit-table
+firedev start:watch
+```

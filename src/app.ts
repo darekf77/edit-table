@@ -1,35 +1,38 @@
 //#region @notForNpm
 
 //#region @browser
-    import { NgModule } from '@angular/core';
-    import { Component, OnInit } from '@angular/core';
+import { NgModule, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EditTableModule as EditTableModuleBase } from './lib/components/edit-table.module';
 
 
-    @Component({
-      selector: 'app-edit-table',
-      template: 'hello from edit-table'
-    })
-    export class EditTableComponent implements OnInit {
-      constructor() { }
+@Component({
+  selector: 'app-edit-table',
+  styleUrls: ['./app.scss'],
+  templateUrl: './app.html',
+  encapsulation: ViewEncapsulation.None,
+})
+export class EditTableComponent implements OnInit {
+  constructor() { }
 
-      ngOnInit() { }
-    }
+  ngOnInit() { }
+}
 
-    @NgModule({
-      imports: [],
-      exports: [EditTableComponent],
-      declarations: [EditTableComponent],
-      providers: [],
-    })
-    export class EditTableModule { }
-    //#endregion
+@NgModule({
+  imports: [EditTableModuleBase],
+  exports: [EditTableComponent],
+  declarations: [EditTableComponent],
+  providers: [],
+})
+export class EditTableModule { }
+//#endregion
 
-    //#region @backend
-    async function start(port: number) {
-      console.log('hello world from backend');
-    }
+//#region @backend
+async function start(port: number) {
+  console.log('hello world from backend');
+}
 
-    export default start;
+export default start;
 
 //#endregion
 

@@ -1,2 +1,1 @@
-export function helloWorldFromEditTable() { }
-        
+export * from './components/index';
