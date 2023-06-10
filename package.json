@@ -1,8 +1,48 @@
 {
+  "tnp": {
+    "resources": [],
+    "overrided": {
+      "linkedFolders": [],
+      "ignoreDepsPattern": [
+        "*"
+      ],
+      "includeAsDev": [],
+      "includeOnly": [],
+      "dependencies": {},
+      "npmFixes": []
+    },
+    "linkedProjects": [],
+    "smartContainerBuildTarget": "",
+    "linkedRepos": [],
+    "libReleaseOptions": {
+      "nodts": false,
+      "obscure": false,
+      "ugly": false,
+      "includeNodeModules": false
+    },
+    "smartContainerTarget": "",
+    "type": "isomorphic-lib",
+    "version": "v3",
+    "scripts": {
+      "test": "karma start"
+    },
+    "private": false,
+    "description": "Edit object in array with angular2 ",
+    "license": "MIT",
+    "author": "Dariusz Filipiak",
+    "homepage": "https://github.com/darekf77/edit-table#readme",
+    "main": "karma.conf.js",
+    "keywords": [
+      "angular2",
+      "edit",
+      "table",
+      "editable"
+    ],
+    "workerPlugins": {}
+  },
   "name": "edit-table",
   "version": "13.1.0",
   "description": "Edit object in array with angular2 ",
-  "main": "karma.conf.js",
   "scripts": {
     "test": "karma start"
   },
