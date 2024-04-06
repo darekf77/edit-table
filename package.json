@@ -21,7 +21,8 @@
       "includeNodeModules": false,
       "cliBuildNoDts": false,
       "cliBuildObscure": false,
-      "cliBuildIncludeNodeModules": false
+      "cliBuildIncludeNodeModules": false,
+      "cliBuildUglify": false
     },
     "smartContainerTarget": "",
     "type": "isomorphic-lib",
@@ -301,5 +302,6 @@
     "zone.js": "~0.11.4"
   },
   "private": false,
-  "lastBuildTagHash": "6e7e04e918016b5977aea64502602759b9af20c1"
+  "lastBuildTagHash": "6e7e04e918016b5977aea64502602759b9af20c1",
+  "main": "karma.conf.js"
 }
