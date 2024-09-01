@@ -3,7 +3,7 @@
     "resources": []
   },
   "name": "edit-table",
-  "version": "13.1.5",
+  "version": "13.1.6",
   "description": "Edit object in array with angular2 ",
   "scripts": {
     "test": "karma start"
